@@ -1,6 +1,6 @@
 # AI Usage Dashboard
 
-[![CI](https://github.com/OWNER/REPO/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/REPO/actions/workflows/ci.yml)
+[![CI](https://github.com/ChainsQueen/ai-usage-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/ChainsQueen/ai-usage-dashboard/actions/workflows/ci.yml)
 
 AI Usage Dashboard is a Vite + React app with Tailwind CSS v4. It’s set up for fast local dev, HMR, and a minimal linting baseline.
 
