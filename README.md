@@ -1,6 +1,25 @@
 # AI Usage Dashboard
 
+<!-- Badges -->
+<!-- CI & Deploy -->
 [![CI](https://github.com/ChainsQueen/ai-usage-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/ChainsQueen/ai-usage-dashboard/actions/workflows/ci.yml)
+[![Deploy](https://github.com/ChainsQueen/ai-usage-dashboard/actions/workflows/deploy.yml/badge.svg)](https://github.com/ChainsQueen/ai-usage-dashboard/actions/workflows/deploy.yml)
+
+<!-- Quality -->
+![Lint: ESLint](https://img.shields.io/badge/lint-eslint-4B32C3?logo=eslint&logoColor=white)
+
+<!-- Runtime & Package Manager -->
+![Node 20](https://img.shields.io/badge/Node-20.x-339933?logo=nodedotjs&logoColor=white)
+![pnpm 10](https://img.shields.io/badge/pnpm-10.x-F69220?logo=pnpm&logoColor=white)
+
+<!-- Frameworks & Tooling -->
+![Vite 7](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)
+![React 19](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![Tailwind CSS 4](https://img.shields.io/badge/Tailwind%20CSS-4-38B2AC?logo=tailwindcss&logoColor=white)
+![PostCSS 8](https://img.shields.io/badge/PostCSS-8-DD3A0A?logo=postcss&logoColor=white)
+
+<!-- Hosting -->
+[![GitHub Pages](https://img.shields.io/badge/Hosting-GitHub%20Pages-222?logo=github&logoColor=white)](https://chainsqueen.github.io/ai-usage-dashboard/)
 
 AI Usage Dashboard is a Vite + React app with Tailwind CSS v4. It’s set up for fast local dev, HMR, and a minimal linting baseline.
 
