@@ -1,11 +1,12 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
 import { useUsageStore } from '../../core/state/use-usage-store'
+import type { UsageState, UsageSelectors } from '../../core/state/use-usage-store'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
 export function ModelPieChart() {
-  const dist = useUsageStore((s) => s.modelDistribution)
+  const dist = useUsageStore((s: UsageState & UsageSelectors) => s.modelDistribution)
   const labels = Object.keys(dist)
   const values = Object.values(dist)
 

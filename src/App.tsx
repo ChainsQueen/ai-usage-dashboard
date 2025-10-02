@@ -1,6 +1,7 @@
 import "./App.css"
 import { SummaryCard } from "./partials/cards/summary-card"
 import { UsageLineChart } from "./partials/charts/usage-line-chart"
+import { ModelPieChart } from "./partials/charts/model-pie-chart"
 import { PromptLogTable } from "./partials/table/prompt-log-table"
 import { ThemeToggle } from "./partials/ui/theme-toggle"
 import { useUsageStore } from "./core/state/use-usage-store"
@@ -26,10 +27,16 @@ function App() {
           <SummaryCard title="Errors" value={totalErrors.toLocaleString()} />
         </section>
 
-        {/* Chart */}
-        <section className="mt-6 rounded-xl border border-white/10 bg-white/5 p-4">
-          <h2 className="mb-3 text-lg font-semibold text-white">Usage Over Time</h2>
-          <UsageLineChart />
+        {/* Charts */}
+        <section className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4 lg:col-span-2">
+            <h2 className="mb-3 text-lg font-semibold text-white">Usage Over Time</h2>
+            <UsageLineChart />
+          </div>
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+            <h2 className="mb-3 text-lg font-semibold text-white">Model Distribution</h2>
+            <ModelPieChart />
+          </div>
         </section>
 
         {/* Prompt logs */}
