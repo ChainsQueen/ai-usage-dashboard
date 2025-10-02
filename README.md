@@ -41,6 +41,16 @@ ai-usage-dashboard/
 - **Preview**: `pnpm preview`
 - **Lint**: `pnpm lint`
 
+## Continuous Integration (CI)
+
+The workflow at `/.github/workflows/ci.yml` runs on pushes and pull requests targeting `main`.
+
+- **Install**: Uses PNPM with lockfile for reproducible installs
+- **Lint**: Executes `pnpm lint`
+- **Build**: Executes `pnpm build` to ensure the app compiles
+
+You can monitor status via the badge at the top of this README or from the Actions tab in GitHub. Update the badge URL to your actual `OWNER/REPO` once pushed.
+
 ## Tailwind CSS v4 Setup
 
 Tailwind v4 is enabled via a single import in the main stylesheet and a PostCSS plugin.
