@@ -51,6 +51,19 @@ The workflow at `/.github/workflows/ci.yml` runs on pushes and pull requests tar
 
 You can monitor status via the badge at the top of this README or from the Actions tab in GitHub. Update the badge URL to your actual `OWNER/REPO` once pushed.
 
+## Continuous Deployment (CD)
+
+Deployed to **GitHub Pages** using `/.github/workflows/deploy.yml` on pushes to `main`.
+
+- **Live URL**: https://chainsqueen.github.io/ai-usage-dashboard/
+- **Build**: `pnpm build` (Vite outputs to `dist/`)
+- **Base path**: `vite.config.js` sets `base: '/ai-usage-dashboard/'` for correct asset URLs
+- **Artifacts**: Uploads `./dist` and deploys via `actions/deploy-pages@v4`
+
+Prerequisites:
+- Enable Pages in GitHub: Settings → Pages → Build and deployment → Source: “GitHub Actions”
+- Repo should be public (or ensure appropriate access) for the site to be visible
+
 ## Tailwind CSS v4 Setup
 
 Tailwind v4 is enabled via a single import in the main stylesheet and a PostCSS plugin.
