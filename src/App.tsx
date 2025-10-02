@@ -6,6 +6,7 @@ import { PromptLogTable } from "./partials/table/prompt-log-table"
 import { ThemeToggle } from "./partials/ui/theme-toggle"
 import { useUsageStore } from "./core/state/use-usage-store"
 import type { UsageState, UsageSelectors } from "./core/state/use-usage-store"
+import { InteractiveCard, setSpotlightVars } from "./design-system/interactive-card"
 
 function App() {
   const totalTokens = useUsageStore((s: UsageState & UsageSelectors) => s.totalTokens)
@@ -22,21 +23,27 @@ function App() {
       <main className="mx-auto max-w-6xl px-4 pb-16">
         {/* Summary */}
         <section className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-          <SummaryCard title="Total Tokens" value={totalTokens.toLocaleString()} />
-          <SummaryCard title="Total Requests" value={totalRequests.toLocaleString()} />
-          <SummaryCard title="Errors" value={totalErrors.toLocaleString()} />
+          <InteractiveCard className="group" onMouseMove={setSpotlightVars}>
+            <SummaryCard title="Total Tokens" value={totalTokens.toLocaleString()} />
+          </InteractiveCard>
+          <InteractiveCard className="group" onMouseMove={setSpotlightVars}>
+            <SummaryCard title="Total Requests" value={totalRequests.toLocaleString()} />
+          </InteractiveCard>
+          <InteractiveCard className="group" onMouseMove={setSpotlightVars}>
+            <SummaryCard title="Errors" value={totalErrors.toLocaleString()} />
+          </InteractiveCard>
         </section>
 
         {/* Charts */}
         <section className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
-          <div className="rounded-xl border border-white/10 bg-white/5 p-4 lg:col-span-2">
+          <InteractiveCard className="group lg:col-span-2" onMouseMove={setSpotlightVars} outerClassName="p-4">
             <h2 className="mb-3 text-lg font-semibold text-white">Usage Over Time</h2>
             <UsageLineChart />
-          </div>
-          <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+          </InteractiveCard>
+          <InteractiveCard className="group" onMouseMove={setSpotlightVars} outerClassName="p-4">
             <h2 className="mb-3 text-lg font-semibold text-white">Model Distribution</h2>
             <ModelPieChart />
-          </div>
+          </InteractiveCard>
         </section>
 
         {/* Prompt logs */}
