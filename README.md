@@ -1,16 +1,95 @@
-# React + Vite
+# AI Usage Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![CI](https://github.com/OWNER/REPO/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/REPO/actions/workflows/ci.yml)
 
-Currently, two official plugins are available:
+AI Usage Dashboard is a Vite + React app with Tailwind CSS v4. It’s set up for fast local dev, HMR, and a minimal linting baseline.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Stack
 
-## React Compiler
+- **Vite** for tooling and HMR (`vite`)
+- **React 19** (`react`, `react-dom`)
+- **Tailwind CSS v4** with PostCSS plugin (`@tailwindcss/postcss`)
+- **ESLint** baseline config
+- **PNPM** as the package manager
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Project Structure
 
-## Expanding the ESLint configuration
+```
+ai-usage-dashboard/
+  .gitattributes
+  .gitignore
+  README.md
+  eslint.config.js
+  index.html
+  package.json
+  pnpm-lock.yaml
+  postcss.config.cjs
+  public/
+  src/
+    App.css
+    App.jsx
+    assets/
+    index.css
+    main.jsx
+  vite.config.js
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Scripts
+
+- **Dev**: `pnpm dev`
+- **Build**: `pnpm build`
+- **Preview**: `pnpm preview`
+- **Lint**: `pnpm lint`
+
+## Tailwind CSS v4 Setup
+
+Tailwind v4 is enabled via a single import in the main stylesheet and a PostCSS plugin.
+
+- `src/index.css` must begin with:
+
+```css
+@import "tailwindcss";
+```
+
+- PostCSS config uses the v4 plugin:
+
+```js
+// postcss.config.cjs
+module.exports = {
+  plugins: {
+    '@tailwindcss/postcss': {},
+    autoprefixer: {},
+  },
+};
+```
+
+No `tailwind.config.js` is required unless you need custom tokens/theme.
+
+## Getting Started
+
+1. Install dependencies (PNPM):
+   ```sh
+   pnpm install
+   ```
+2. Start dev server:
+   ```sh
+   pnpm dev
+   ```
+3. Build for production:
+   ```sh
+   pnpm build
+   ```
+4. Preview the build locally:
+   ```sh
+   pnpm preview
+   ```
+
+## Troubleshooting
+
+- If you see an error about using `tailwindcss` directly as a PostCSS plugin, install and use `@tailwindcss/postcss` and restart dev server:
+  ```sh
+  pnpm add -D @tailwindcss/postcss
+  pnpm dev
+  ```
+- Ensure `src/main.jsx` imports `./index.css` and that `index.css` starts with `@import "tailwindcss";`.
+- Hard refresh the browser after changes to PostCSS/Tailwind config.
