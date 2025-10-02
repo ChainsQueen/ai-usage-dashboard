@@ -44,11 +44,13 @@ export function UsageLineChart() {
     ],
   }
 
+  const isSmall = typeof window !== 'undefined' ? window.innerWidth < 640 : false
+
   const options = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
-      legend: { labels: { color: '#e5e7eb' } },
+      legend: { display: !isSmall, labels: { color: '#e5e7eb' } },
       tooltip: { enabled: true },
     },
     scales: {
@@ -64,7 +66,7 @@ export function UsageLineChart() {
   } as const
 
   return (
-    <div className="h-72 w-full">
+    <div className="h-48 w-full sm:h-64 md:h-80 lg:h-96">
       <Line options={options} data={data} />
     </div>
   )

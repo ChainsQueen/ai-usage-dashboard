@@ -29,14 +29,23 @@ export function ModelPieChart() {
   }
 
   const options = {
+    maintainAspectRatio: false,
     plugins: {
-      legend: { labels: { color: '#e5e7eb' } },
+      legend: {
+        display: true,
+        position: 'top' as const,
+        align: 'center' as const,
+        labels: { color: '#e5e7eb' },
+      },
+      tooltip: { enabled: true },
     },
   } as const
 
   return (
-    <div className="h-72 w-full">
-      <Doughnut data={data} options={options} />
+    <div className="mx-auto flex w-full max-w-md items-center justify-center">
+      <div className="h-56 w-full sm:h-64 md:h-72">
+        <Doughnut data={data} options={options} />
+      </div>
     </div>
   )
 }
