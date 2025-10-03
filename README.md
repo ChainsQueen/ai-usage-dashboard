@@ -22,20 +22,22 @@
 <!-- Hosting -->
 [![GitHub Pages](https://img.shields.io/badge/Hosting-GitHub%20Pages-222?logo=github&logoColor=white)](https://chainsqueen.github.io/ai-usage-dashboard/)
 
+## Overview
+
 AI Usage Dashboard — A fast React + TypeScript app (Vite) with Tailwind CSS v4 that shows AI usage metrics using interactive Chart.js charts, smooth framer-motion animations, and a fully responsive design.
 
 ## Table of Contents
 
-- **Overview**
-- **Live Demo**
-- **Stack**
-- **Project Structure**
-- **Getting Started**
-- **Scripts**
-- **CI / CD**
-- **Tailwind CSS v4 Setup**
-- **Features**
-- **Troubleshooting**
+- **[Overview](#overview)**
+- **[Live Demo](#live-demo)**
+- **[Stack](#stack)**
+- **[Project Structure](#project-structure)**
+- **[Getting Started](#getting-started)**
+- **[Scripts](#scripts)**
+- **[CI / CD](#ci--cd)**
+- **[Tailwind CSS v4 Setup](#tailwind-css-v4-setup)**
+- **[Features](#features)**
+- **[Troubleshooting](#troubleshooting)**
 
 ## Live Demo
 
