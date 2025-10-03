@@ -15,16 +15,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup pnpm (action)
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
+
+      - name: Install pnpm globally
+        run: |
+          npm i -g pnpm@10
+          echo "$(npm bin -g)" >> $GITHUB_PATH
+          pnpm --version
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'pnpm'
 
-      - name: Install pnpm globally
+      - name: Debug pnpm path
         run: |
-          npm i -g pnpm@10
-          echo "$(npm bin -g)" >> $GITHUB_PATH
+          which pnpm || true
+          echo "PATH=$PATH"
           pnpm --version
 
       - name: Install dependencies
