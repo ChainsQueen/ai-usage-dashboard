@@ -3,7 +3,8 @@
 <!-- Badges -->
 <!-- CI & Deploy -->
 [![CI](https://github.com/ChainsQueen/ai-usage-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/ChainsQueen/ai-usage-dashboard/actions/workflows/ci.yml)
-[![Deploy](https://github.com/ChainsQueen/ai-usage-dashboard/actions/workflows/deploy.yml/badge.svg)](https://github.com/ChainsQueen/ai-usage-dashboard/actions/workflows/deploy.yml)
+[![Deploy](https://github.com/ChainsQueen/ai-usage-dashboard/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/ChainsQueen/ai-usage-dashboard/actions/workflows/gh-pages.yml)
+[![Live](https://img.shields.io/website?url=https%3A%2F%2Fchainsqueen.github.io%2Fai-usage-dashboard%2F&label=Live&logo=github&logoColor=white)](https://chainsqueen.github.io/ai-usage-dashboard/)
 
 <!-- Quality -->
 ![Lint: ESLint](https://img.shields.io/badge/lint-eslint-4B32C3?logo=eslint&logoColor=white)
@@ -21,7 +22,24 @@
 <!-- Hosting -->
 [![GitHub Pages](https://img.shields.io/badge/Hosting-GitHub%20Pages-222?logo=github&logoColor=white)](https://chainsqueen.github.io/ai-usage-dashboard/)
 
-AI Usage Dashboard is a Vite + React app with Tailwind CSS v4. It’s set up for fast local dev, HMR, and a minimal linting baseline.
+AI Usage Dashboard — A fast React + TypeScript app (Vite) with Tailwind CSS v4 that shows AI usage metrics using interactive Chart.js charts, smooth framer-motion animations, and a fully responsive design.
+
+## Table of Contents
+
+- **Overview**
+- **Live Demo**
+- **Stack**
+- **Project Structure**
+- **Getting Started**
+- **Scripts**
+- **CI / CD**
+- **Tailwind CSS v4 Setup**
+- **Features**
+- **Troubleshooting**
+
+## Live Demo
+
+[![Live Banner](https://img.shields.io/website?url=https%3A%2F%2Fchainsqueen.github.io%2Fai-usage-dashboard%2F&label=Open%20App&logo=github&logoColor=white)](https://chainsqueen.github.io/ai-usage-dashboard/)
 
 ## Stack
 
@@ -35,6 +53,11 @@ AI Usage Dashboard is a Vite + React app with Tailwind CSS v4. It’s set up for
 
 ```
 ai-usage-dashboard/
+  .github/
+    workflows/
+      ci.yml
+      gh-pages.yml
+      deploy.yml (optional; if using official Pages action)
   .gitattributes
   .gitignore
   README.md
@@ -46,12 +69,49 @@ ai-usage-dashboard/
   public/
   src/
     App.css
-    App.jsx
-    assets/
     index.css
-    main.jsx
+    main.tsx
+    App.tsx
+    vite-env.d.ts
+    core/
+      data/
+        usage-data.ts
+      hooks/
+        use-theme.ts
+      state/
+        use-usage-store.ts
+    design-system/
+      interactive-card.tsx
+    partials/
+      cards/
+        summary-card.tsx
+      charts/
+        usage-line-chart.tsx
+        model-pie-chart.tsx
+      table/
+        prompt-log-table.tsx
   vite.config.js
+  tsconfig.json
 ```
+
+## Getting Started
+
+1. Install dependencies
+   ```sh
+   pnpm install
+   ```
+2. Start the dev server
+   ```sh
+   pnpm dev
+   ```
+3. Build for production
+   ```sh
+   pnpm build
+   ```
+4. Preview the build locally
+   ```sh
+   pnpm preview
+   ```
 
 ## Scripts
 
@@ -60,7 +120,7 @@ ai-usage-dashboard/
 - **Preview**: `pnpm preview`
 - **Lint**: `pnpm lint`
 
-## Continuous Integration (CI)
+## CI / CD
 
 The workflow at `/.github/workflows/ci.yml` runs on pushes and pull requests targeting `main`.
 
@@ -70,18 +130,11 @@ The workflow at `/.github/workflows/ci.yml` runs on pushes and pull requests tar
 
 You can monitor status via the badge at the top of this README or from the Actions tab in GitHub. Update the badge URL to your actual `OWNER/REPO` once pushed.
 
-## Continuous Deployment (CD)
+Deployed to **GitHub Pages** via `/.github/workflows/gh-pages.yml` on push to `main`.
 
-Deployed to **GitHub Pages** using `/.github/workflows/deploy.yml` on pushes to `main`.
-
-- **Live URL**: https://chainsqueen.github.io/ai-usage-dashboard/
-- **Build**: `pnpm build` (Vite outputs to `dist/`)
-- **Base path**: `vite.config.js` sets `base: '/ai-usage-dashboard/'` for correct asset URLs
-- **Artifacts**: Uploads `./dist` and deploys via `actions/deploy-pages@v4`
-
-Prerequisites:
-- Enable Pages in GitHub: Settings → Pages → Build and deployment → Source: “GitHub Actions”
-- Repo should be public (or ensure appropriate access) for the site to be visible
+- **Base path**: `vite.config.js` sets `base: '/ai-usage-dashboard/'`
+- **Publish**: `peaceiris/actions-gh-pages` pushes `dist/` to `gh-pages`
+- **Enable Pages**: Settings → Pages → “Deploy from a branch” → Branch: `gh-pages` → Folder: `/ (root)`
 
 ## Tailwind CSS v4 Setup
 
@@ -107,24 +160,13 @@ module.exports = {
 
 No `tailwind.config.js` is required unless you need custom tokens/theme.
 
-## Getting Started
+## Features
 
-1. Install dependencies (PNPM):
-   ```sh
-   pnpm install
-   ```
-2. Start dev server:
-   ```sh
-   pnpm dev
-   ```
-3. Build for production:
-   ```sh
-   pnpm build
-   ```
-4. Preview the build locally:
-   ```sh
-   pnpm preview
-   ```
+- **Responsive UI**: Mobile-first layout with Tailwind
+- **Charts**: Line + Doughnut (Chart.js via react-chartjs-2)
+- **Animations**: Framer Motion micro-interactions and `InteractiveCard`
+- **Theme Toggle**: Light/Dark with `useTheme()` and localStorage persistence
+- **Mock Data**: `src/core/data/usage-data.ts` for fast iteration
 
 ## Troubleshooting
 
