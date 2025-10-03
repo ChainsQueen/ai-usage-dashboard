@@ -1,4 +1,5 @@
 import "./App.css"
+import { motion } from "framer-motion"
 import { SummaryCard } from "./partials/cards/summary-card"
 import { UsageLineChart } from "./partials/charts/usage-line-chart"
 import { ModelPieChart } from "./partials/charts/model-pie-chart"
@@ -16,7 +17,14 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white">
       <header className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-6">
-        <h1 className="text-2xl font-semibold tracking-tight">AI Usage Dashboard</h1>
+        <motion.h1
+          whileHover={{ y: -1 }}
+          whileTap={{ scale: 0.99 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+          className="text-2xl font-semibold tracking-tight cursor-default select-none hover:text-white"
+        >
+          AI Usage Dashboard
+        </motion.h1>
         <ThemeToggle />
       </header>
 
@@ -37,18 +45,39 @@ function App() {
         {/* Charts */}
         <section className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
           <InteractiveCard className="group lg:col-span-2" onMouseMove={setSpotlightVars} outerClassName="p-4">
-            <h2 className="mb-3 text-lg font-semibold text-white">Usage Over Time</h2>
+            <motion.h2
+              whileHover={{ y: -1 }}
+              whileTap={{ scale: 0.99 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+              className="mb-3 text-lg font-semibold text-white cursor-default select-none"
+            >
+              Usage Over Time
+            </motion.h2>
             <UsageLineChart />
           </InteractiveCard>
           <InteractiveCard className="group" onMouseMove={setSpotlightVars} outerClassName="p-4">
-            <h2 className="mb-3 text-lg font-semibold text-white">Model Distribution</h2>
+            <motion.h2
+              whileHover={{ y: -1 }}
+              whileTap={{ scale: 0.99 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+              className="mb-3 text-lg font-semibold text-white cursor-default select-none"
+            >
+              Model Distribution
+            </motion.h2>
             <ModelPieChart />
           </InteractiveCard>
         </section>
 
         {/* Prompt logs */}
         <section className="mt-6">
-          <h2 className="mb-3 text-lg font-semibold text-white">Prompt Logs</h2>
+          <motion.h2
+            whileHover={{ y: -1 }}
+            whileTap={{ scale: 0.99 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+            className="mb-3 text-lg font-semibold text-white cursor-default select-none"
+          >
+            Prompt Logs
+          </motion.h2>
           <PromptLogTable />
         </section>
       </main>

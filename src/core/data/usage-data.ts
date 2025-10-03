@@ -18,10 +18,10 @@ export const dailyUsage: DailyUsage[] = [
 ];
 
 export const modelDistribution: ModelDistribution = {
-  'gpt-4': 52,
-  llama3: 28,
-  mistral: 15,
-  claude: 5,
+  'GPT-4': 52,
+  'LLaMA 3': 28,
+  Mistral: 15,
+  Claude: 5,
 };
 
 export type PromptLog = {
@@ -32,41 +32,45 @@ export type PromptLog = {
   response: string;
   tokens: number;
   status: 'ok' | 'error';
+  responseTimeMs?: number;
 };
 
 export const promptLogs: PromptLog[] = [
   {
     id: '1',
-    date: '2025-10-01T10:00:00Z',
-    model: 'gpt-4',
-    prompt: 'Summarize yesterday\'s metrics',
+    date: '2025-10-01T11:00:00Z',
+    model: 'GPT-4',
+    prompt: 'Summarize key performance metrics for 30 Sep',
     response: 'Tokens up 12%, requests up 5% week-over-week.',
     tokens: 312,
     status: 'ok',
+    responseTimeMs: 850,
   },
   {
     id: '2',
-    date: '2025-10-01T10:15:00Z',
-    model: 'llama3',
-    prompt: 'Generate test data for dashboard',
+    date: '2025-10-01T11:15:00Z',
+    model: 'LLaMA 3',
+    prompt: 'Generate mock dashboard data (JSON format)',
     response: 'Created 100 sample entries for usage and logs.',
     tokens: 210,
     status: 'ok',
+    responseTimeMs: 670,
   },
   {
     id: '3',
-    date: '2025-10-01T10:30:00Z',
-    model: 'mistral',
-    prompt: 'Translate a short paragraph to Spanish',
+    date: '2025-10-01T11:30:00Z',
+    model: 'Mistral',
+    prompt: 'Translate paragraph to Spanish (customer feedback)',
     response: 'Traducción completada con éxito.',
     tokens: 95,
     status: 'ok',
+    responseTimeMs: 420,
   },
   {
     id: '4',
-    date: '2025-10-01T11:00:00Z',
-    model: 'claude',
-    prompt: 'Explain variance in error rates',
+    date: '2025-10-01T12:00:00Z',
+    model: 'Claude',
+    prompt: 'Analyze spike in error rates on login service',
     response: 'Spike due to provider API rate-limits between 09:00-10:00 UTC.',
     tokens: 188,
     status: 'error',
